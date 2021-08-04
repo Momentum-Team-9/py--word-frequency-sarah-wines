@@ -14,7 +14,9 @@ def print_word_freq(file):
         words = text.split()
         table = str.maketrans("", "", string.punctuation)
         stripped = [w.translate(table) for w in words]
+        clean_text = [word for word in stripped if word not in STOP_WORDS]
         print(stripped)
+        print(clean_text)
         file_text.closed
 
 
