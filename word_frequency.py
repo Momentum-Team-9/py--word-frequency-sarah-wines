@@ -15,8 +15,17 @@ def print_word_freq(file):
         table = str.maketrans("", "", string.punctuation)
         stripped = [w.translate(table) for w in words]
         clean_text = [word for word in stripped if word not in STOP_WORDS]
-        print(stripped)
-        print(clean_text)
+        dict = {}
+
+        for word in clean_text:
+            dict.update({word: clean_text.count(word)})
+        # for word in clean_text:
+        #     if word in dict:
+        #         dict.update({word: 1})
+        #     else:
+        #         dict.update({word: 1})
+
+        print(dict)
         file_text.closed
 
 
