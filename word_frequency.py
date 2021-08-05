@@ -21,12 +21,13 @@ def print_word_freq(file):
             dict.update({word: clean_text.count(word)})
         # for word in clean_text:
         #     if word in dict:
-        #         dict.update({word: 1})
+        #         dict.update({word: +1}) doesn't update number :(
         #     else:
         #         dict.update({word: 1})
-
-        print(dict)
-        file_text.closed
+        sorts = sorted(dict.items(), key=lambda x: x[1], reverse=True)
+        for word, value in sorts[:20]:
+            print(word.rjust(20), "|", str(value).ljust(3), "*" * value)
+            file_text.closed
 
 
 if __name__ == "__main__":
